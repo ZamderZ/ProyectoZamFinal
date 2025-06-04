@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymOsiRex</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="indexInicio.html" class="logo"></a>
+        <img src="img/LogoSinFondogym.png" alt="logo" height="150px" weidth="150px">
+        </a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="indexInicio.html" class="active">Incio</a></li>
+                <li><a href="indexQuienesSomos.html">Quienes somos</a></li>
+                <li><a href="indexNuestrosServicios.html"> Nuestros Servicios</a></li>
+                <li><a href="indexPromociones.html">Promociones</a></li>
+                <li><a href="indexContact.html">Contacto</a></li>
+            </ul>
+
+        </nav>
+        <div class="fas fa-bars"></div>
+    </header>
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading">Contacto</h1>
+        <h3>Escríbenos</h3>
+        <div class="row">
+            <div class="form-container">
+                <form action="">
+                    <input type="text" placeholder="Nombre">
+                    <input type="email" placeholder="Correo">
+                    <input type="number" placeholder="Telefono">
+                    <textarea name="" id="" cols="15" rows="5" placeholder="Mensaje"></textarea>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="footer">
+        <div class="icons">
+            <a href="https://www.facebook.com/" class="fab fa-facebook-f" target="_blank"></a>
+            <a href="https://twitter.com" class="fab fa-twitter" target="_blank"></a>
+            <a href="https://www.instagram.com/" class="fab fa-instagram" target="_blank"></a>
+            <a href="https://wa.me/50660192230" class="fab fa-whatsapp" target="_blank"></a>
+        </div>
+
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('.fa-bars').click(function () {
+
+                $(this).toggleClass('fa-times');
+                $('.navbar').toggleClass('nav-toggle');
+
+            });
+
+            $(window).on('scroll load', function () {
+
+                $('.fa-bars').removeClass('fa-times');
+                $('.navbar').removeClass('nav-toggle');
+
+                $('section').each(function () {
+
+                    var id = $(this).attr('id');
+                    var height = $(this).height();
+                    var offset = $(this).offset().top - 200;
+                    var top = $(window).scrollTop();
+
+                    if (top >= offset && top < offset + height) {
+                        $('.navbar ul li a').removeClass('active');
+                        $('.navbar').find('[href="#' + id + '"]').addClass('active');
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
